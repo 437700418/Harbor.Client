@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Horbor.Client.Group
+namespace Horbor.Client.Group.Model
 {
     public class ListRepositoriesByProjectParam
     {

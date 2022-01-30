@@ -9,6 +9,23 @@ namespace Horbor.Client
     /// </summary>
     public class HarborConfig
     {
+        public HarborConfig()
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username">Harbor用户名</param>
+        /// <param name="password">Harbor密码</param>
+        /// <param name="serveraddress">Harbor地址</param>
+        public HarborConfig(string username,string password,string serveraddress)
+        {
+            this.Username = username;
+            this.Password = password;
+            this.ServerAddress = serveraddress;
+        }
         /// <summary>
         /// Harbor用户名
         /// </summary>

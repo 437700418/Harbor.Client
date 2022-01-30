@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horbor.Client.Group.Model;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -22,6 +23,17 @@ namespace Horbor.Client.Group
         public async Task<string> ListRepositoriesByProject(ListRepositoriesByProjectParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories";
+            return await _horborClient.GetAsync(apiUrl, param);
+        }
+
+        /// <summary>
+        /// Get the repository specified by name
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public async Task<string> GetRepository(GetRepositoryParam param)
+        {
+            string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories/{param.repository_name}";
             return await _horborClient.GetAsync(apiUrl, param);
         }
     }

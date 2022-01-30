@@ -7,3 +7,13 @@ E:\git\Horbor.Client\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor
 E:\git\Horbor.Client\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.csproj.CoreCompileInputs.cache
 E:\git\Horbor.Client\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.dll
 E:\git\Horbor.Client\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.pdb
+E:\git\Horbor.Client\Horbor.Client\bin\Debug\netstandard2.0\Horbor.Client.deps.json
+E:\git\Horbor.Client\Horbor.Client\bin\Debug\netstandard2.0\Horbor.Client.dll
+E:\git\Horbor.Client\Horbor.Client\bin\Debug\netstandard2.0\Horbor.Client.pdb
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.csproj.AssemblyReference.cache
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.GeneratedMSBuildEditorConfig.editorconfig
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.AssemblyInfoInputs.cache
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.AssemblyInfo.cs
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.csproj.CoreCompileInputs.cache
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.dll
+E:\git\Horbor.Client\Horbor.Client\obj\Debug\netstandard2.0\Horbor.Client.pdb
