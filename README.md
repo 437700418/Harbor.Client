@@ -7,14 +7,14 @@ This library allows you to interact with [Harbor REST API]  endpoints in your .N
 Support Harbor v2.3.3
 ## Installation
 
-[![NuGet latest release](https://img.shields.io/nuget/v/Horbor.Client.svg)](https://www.nuget.org/packages/Harbor.Client)
+[![NuGet latest release](https://img.shields.io/nuget/v/Harbor.Client.svg)](https://www.nuget.org/packages/Harbor.Client)
 
 You can add this library to your project using [NuGet][nuget].
 
 **Package Manager Console**
 Run the following command in the “Package Manager Console”:
 
-> PM> Install-Package Horbor.Client
+> PM> Install-Package Harbor.Client
 
 **Visual Studio**
 Right click to your project in Visual Studio, choose “Manage NuGet Packages” and search for ‘Harbor.Client’ and click ‘Install’.
@@ -23,7 +23,7 @@ Right click to your project in Visual Studio, choose “Manage NuGet Packages”
 **.NET Core Command Line Interface**
 Run the following command from your favorite shell or terminal:
 
-> dotnet add package Horbor.Client
+> dotnet add package Harbor.Client
 
 
 ## Usage
@@ -31,15 +31,15 @@ Run the following command from your favorite shell or terminal:
 You can initialize the client like the following:
 
 ```csharp
-using Horbor.Client;
-using Horbor.Client.Group.Model;
+using Harbor.Client;
+using Harbor.Client.Group.Model;
 using System.Threading.Tasks;
 
-        HorborClientConfiguratio _horborClientConfiguratio = new HorborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
+        HarborClientConfiguratio _HarborClientConfiguratio = new HarborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
 
-         using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
+         using (HarborClient _HarborClient = _HarborClientConfiguratio.CreatHarborClient())
             {
-                var result = await _horborClient.Repository.ListRepositoriesByProject(new Horbor.Client.Group.Model.ListRepositoriesByProjectParam()
+                var result = await _HarborClient.Repository.ListRepositoriesByProject(new Harbor.Client.Group.Model.ListRepositoriesByProjectParam()
                 {
                     project_name = projectname
                 });
