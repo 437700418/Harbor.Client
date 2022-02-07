@@ -1,16 +1,16 @@
-﻿using Horbor.Client;
+﻿using Harbor.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
     /// <summary>
-    /// Horbor访问配置
+    /// Harbor访问配置
     /// </summary>
-    public class HorborClientConfiguratio
+    public class HarborClientConfiguratio
     {
         /// <summary>
         /// Api服务的基础路径
@@ -18,13 +18,13 @@ namespace Horbor.Client
         public string BaseUri { get; }
 
         /// <summary>
-        /// Horbor用户名
+        /// Harbor用户名
         /// </summary>
 
         public string UserName { get; }
 
         /// <summary>
-        /// Horbor密码
+        /// Harbor密码
         /// </summary>
         public string Password { get; }
 
@@ -32,7 +32,7 @@ namespace Horbor.Client
         /// 
         /// </summary>
         /// <param name="harborConfig"></param>
-        public HorborClientConfiguratio(HarborConfig harborConfig) : this(harborConfig.ServerAddress, harborConfig.Username, harborConfig.Password)
+        public HarborClientConfiguratio(HarborConfig harborConfig) : this(harborConfig.ServerAddress, harborConfig.Username, harborConfig.Password)
         {
 
         }
@@ -40,10 +40,10 @@ namespace Horbor.Client
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="baseurl">HorborAPi基础地址</param>
-        /// <param name="username">Horbor用户名</param>
-        /// <param name="password">Horbor密码</param>
-        public HorborClientConfiguratio(string baseurl, string username, string password)
+        /// <param name="baseurl">HarborAPi基础地址</param>
+        /// <param name="username">Harbor用户名</param>
+        /// <param name="password">Harbor密码</param>
+        public HarborClientConfiguratio(string baseurl, string username, string password)
         {
             BaseUri = baseurl == null ? "" : (baseurl.StartsWith("http://") ? baseurl : "http://" + baseurl);
             UserName = username ?? "";
@@ -51,12 +51,12 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 创建Horbor请求客户端
+        /// 创建Harbor请求客户端
         /// </summary>
         /// <returns></returns>
-        public HorborClient CreatHorborClient()
+        public HarborClient CreatHarborClient()
         {
-            return new HorborClient(this);
+            return new HarborClient(this);
         }
     }
 }

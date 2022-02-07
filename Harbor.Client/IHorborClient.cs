@@ -1,16 +1,16 @@
-﻿using Horbor.Client.ResponseModel;
+﻿using Harbor.Client.ResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
-    public interface IHorborClient : IDisposable
+    public interface IHarborClient : IDisposable
     {
 
         /// <summary>
-        /// 给Horbor发生请求的基础方法
+        /// 给Harbor发生请求的基础方法
         /// </summary>
         /// <param name="requestUri">请求地址</param>
         /// <param name="httpMethod">请求方式</param>
@@ -19,7 +19,7 @@ namespace Horbor.Client
         Task<string> SendAsync(string requestUri, HttpMethod httpMethod, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -27,7 +27,7 @@ namespace Horbor.Client
         Task<string> GetAsync(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -35,7 +35,7 @@ namespace Horbor.Client
         Task<ApiResponse<T>> GetAsync<T>(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Post请求
+        /// 给Harbor发送Post请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -43,7 +43,7 @@ namespace Horbor.Client
         Task<string> PostAsync(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Post请求
+        /// 给Harbor发送Post请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -52,7 +52,7 @@ namespace Horbor.Client
 
 
         /// <summary>
-        /// 给Horbor发送Put请求
+        /// 给Harbor发送Put请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -60,7 +60,7 @@ namespace Horbor.Client
         Task<string> PutAsync(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Put请求
+        /// 给Harbor发送Put请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -68,7 +68,7 @@ namespace Horbor.Client
         Task<ApiResponse<T>> PutAsync<T>(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Delete请求
+        /// 给Harbor发送Delete请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -76,7 +76,7 @@ namespace Horbor.Client
         Task<string> DeleteAsync(string requestUri, object dataObj);
 
         /// <summary>
-        /// 给Horbor发送Delete请求
+        /// 给Harbor发送Delete请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>

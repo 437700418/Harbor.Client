@@ -1,11 +1,11 @@
-﻿using Horbor.Client.Group.Model;
-using Horbor.Client.ResponseModel;
+﻿using Harbor.Client.Group.Model;
+using Harbor.Client.ResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client.Group
+namespace Harbor.Client.Group
 {
     public interface IRepository
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
     /// <summary>
     /// Harbor配置

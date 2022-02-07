@@ -1,6 +1,6 @@
-﻿using Horbor.Client.Group;
-using Horbor.Client.ResponseModel;
-using Horbor.Client.Tools;
+﻿using Harbor.Client.Group;
+using Harbor.Client.ResponseModel;
+using Harbor.Client.Tools;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,11 +9,11 @@ using System.Net.Http.Headers;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
-    public sealed class HorborClient : IHorborClient
+    public sealed class HarborClient : IHarborClient
     {
-        private readonly HorborClientConfiguratio _horborConfig;
+        private readonly HarborClientConfiguratio _HarborConfig;
 
         private readonly HttpClient _httpClient;
 
@@ -22,15 +22,15 @@ namespace Horbor.Client
         /// </summary>
         public IRepository Repository { get; }
 
-        internal HorborClient(HorborClientConfiguratio horborConfig)
+        internal HarborClient(HarborClientConfiguratio HarborConfig)
         {
-            _horborConfig = horborConfig;
+            _HarborConfig = HarborConfig;
             _httpClient = new HttpClient();
 
             Repository = new Repository(this);
         }
         /// <summary>
-        /// 给Horbor发生请求的基础方法
+        /// 给Harbor发生请求的基础方法
         /// </summary>
         /// <param name="requestUri">请求地址</param>
         /// <param name="httpMethod">请求方式</param>
@@ -41,9 +41,9 @@ namespace Horbor.Client
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-                Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes($"{_horborConfig.UserName}:{_horborConfig.Password}")));
+                Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes($"{_HarborConfig.UserName}:{_HarborConfig.Password}")));
 
-            httpClient.BaseAddress = new Uri(_horborConfig.BaseUri);
+            httpClient.BaseAddress = new Uri(_HarborConfig.BaseUri);
             HttpResponseMessage response = null;
             if (httpMethod == HttpMethod.Post || httpMethod == HttpMethod.Put)
             {
@@ -59,7 +59,7 @@ namespace Horbor.Client
             }
             else if (httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
             {
-                string url = _horborConfig.BaseUri + requestUri + "?" + keyValues.ToPaeameter();
+                string url = _HarborConfig.BaseUri + requestUri + "?" + keyValues.ToPaeameter();
 
                 if (httpMethod == HttpMethod.Get)
                 {
@@ -72,7 +72,7 @@ namespace Horbor.Client
             }
             else
             {
-                throw new NotSupportedException($"{nameof(HorborClient)}不支持的操作。");
+                throw new NotSupportedException($"{nameof(HarborClient)}不支持的操作。");
             }
 
             return response;
@@ -80,7 +80,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发生请求的基础方法
+        /// 给Harbor发生请求的基础方法
         /// </summary>
         /// <param name="requestUri">请求地址</param>
         /// <param name="httpMethod">请求方式</param>
@@ -92,7 +92,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发生请求的泛型方法
+        /// 给Harbor发生请求的泛型方法
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="requestUri">请求地址</param>
@@ -147,7 +147,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -158,7 +158,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -169,7 +169,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Post请求
+        /// 给Harbor发送Post请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -180,7 +180,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -191,7 +191,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Put请求
+        /// 给Harbor发送Put请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -202,7 +202,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -213,7 +213,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Delete请求
+        /// 给Harbor发送Delete请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
@@ -224,7 +224,7 @@ namespace Horbor.Client
         }
 
         /// <summary>
-        /// 给Horbor发送Get请求
+        /// 给Harbor发送Get请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>

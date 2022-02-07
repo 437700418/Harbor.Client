@@ -28,7 +28,7 @@ namespace TestWebApp
             // Ìí¼ÓSwagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Horbor.Client Test API Demo", Version = "v1" });
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Harbor.Client Test API Demo", Version = "v1" });
             });
             services.AddControllers();
         }
@@ -43,7 +43,7 @@ namespace TestWebApp
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Horbor.Client Test API Demo");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Harbor.Client Test API Demo");
             });
             app.UseHttpsRedirection();
 

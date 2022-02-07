@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace Horbor.Client.ResponseModel
+namespace Harbor.Client.ResponseModel
 {
     public class ErrorResponse
     {

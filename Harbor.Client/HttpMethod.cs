@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
     /// <summary>
     /// 表示标准的检索和比较 HTTP 方法的基础结构。

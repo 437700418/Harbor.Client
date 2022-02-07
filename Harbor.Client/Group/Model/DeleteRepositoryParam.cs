@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Horbor.Client.Group.Model
+namespace Harbor.Client.Group.Model
 {
     /// <summary>
     /// DeleteRepositoryParam

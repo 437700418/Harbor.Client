@@ -1,19 +1,19 @@
-﻿using Horbor.Client.Group.Model;
-using Horbor.Client.ResponseModel;
+﻿using Harbor.Client.Group.Model;
+using Harbor.Client.ResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client.Group
+namespace Harbor.Client.Group
 {
     public class Repository : IRepository
     {
-        private readonly IHorborClient _horborClient;
-        internal Repository(IHorborClient horborClient)
+        private readonly IHarborClient _HarborClient;
+        internal Repository(IHarborClient HarborClient)
         {
-            _horborClient = horborClient;
+            _HarborClient = HarborClient;
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Horbor.Client.Group
         public async Task<ApiResponse<List<Repositories>>> ListRepositoriesByProject(ListRepositoriesByProjectParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories";
-            return await _horborClient.GetAsync<List<Repositories>>(apiUrl, param);
+            return await _HarborClient.GetAsync<List<Repositories>>(apiUrl, param);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Horbor.Client.Group
         public async Task<ApiResponse<Repositories>> GetRepository(GetRepositoryParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories/{param.repository_name}";
-            return await _horborClient.GetAsync<Repositories>(apiUrl, param);
+            return await _HarborClient.GetAsync<Repositories>(apiUrl, param);
         }
         /// <summary>
         /// Delete the repository specified by name
@@ -45,7 +45,7 @@ namespace Horbor.Client.Group
         public async Task<ApiResponse<string>> DeleteRepository(DeleteRepositoryParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories/{param.repository_name}";
-            return await _horborClient.DeleteAsync<string>(apiUrl, null);
+            return await _HarborClient.DeleteAsync<string>(apiUrl, null);
         }
     }
 }

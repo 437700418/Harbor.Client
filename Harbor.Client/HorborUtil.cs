@@ -1,4 +1,4 @@
-﻿using Horbor.Client.Group;
+﻿using Harbor.Client.Group;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,9 +8,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horbor.Client
+namespace Harbor.Client
 {
-    public static class HorborUtil
+    public static class HarborUtil
     {
         /// <summary>
         /// 参数拼接Url

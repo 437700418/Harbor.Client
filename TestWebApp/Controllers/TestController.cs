@@ -1,12 +1,7 @@
-﻿using Horbor.Client;
-using Horbor.Client.Group.Model;
-using Horbor.Client.ResponseModel;
+﻿using Harbor.Client;
+using Harbor.Client.Group.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace TestWebApp.Controllers
@@ -15,18 +10,18 @@ namespace TestWebApp.Controllers
     [Route("api/[controller]")]
     public class TestController : ControllerBase
     {
-        private readonly HorborClientConfiguratio _horborClientConfiguratio;
+        private readonly HarborClientConfiguratio _HarborClientConfiguratio;
         public TestController()
         {
-            _horborClientConfiguratio = new HorborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
+            _HarborClientConfiguratio = new HarborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
         }
 
         [HttpGet, Route("ListRepositoriesByProject")]
         public async Task<string> ListRepositoriesByProject(string projectname)
         {
-            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
+            using (HarborClient _HarborClient = _HarborClientConfiguratio.CreatHarborClient())
             {
-                var result = await _horborClient.Repository.ListRepositoriesByProject(new Horbor.Client.Group.Model.ListRepositoriesByProjectParam()
+                var result = await _HarborClient.Repository.ListRepositoriesByProject(new Harbor.Client.Group.Model.ListRepositoriesByProjectParam()
                 {
                     project_name = projectname
                 });
@@ -37,9 +32,9 @@ namespace TestWebApp.Controllers
         [HttpGet, Route("GetRepository")]
         public async Task<string> GetRepository(string projectname, string repositoryname)
         {
-            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
+            using (HarborClient _HarborClient = _HarborClientConfiguratio.CreatHarborClient())
             {
-                var result = await _horborClient.Repository.GetRepository(new Horbor.Client.Group.Model.GetRepositoryParam()
+                var result = await _HarborClient.Repository.GetRepository(new Harbor.Client.Group.Model.GetRepositoryParam()
                 {
                     project_name = projectname,
                     repository_name = repositoryname
@@ -52,9 +47,9 @@ namespace TestWebApp.Controllers
         [HttpGet, Route("DeleteRepository")]
         public async Task<string> DeleteRepository()
         {
-            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
+            using (HarborClient _HarborClient = _HarborClientConfiguratio.CreatHarborClient())
             {
-                var result = await _horborClient.Repository.DeleteRepository(new DeleteRepositoryParam()
+                var result = await _HarborClient.Repository.DeleteRepository(new DeleteRepositoryParam()
                 {
                     project_name = "myprpject",
                     repository_name = "ysdszt",

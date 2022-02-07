@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Horbor.Client.ResponseModel
+namespace Harbor.Client.ResponseModel
 {
     public class ListRepositoriesResponseModel: BaseResponse
     {
