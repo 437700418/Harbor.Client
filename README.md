@@ -1,4 +1,4 @@
-# .NET Client for Horbor Remote API
+# .NET Client for Harbor Remote API
 
 This library allows you to interact with [Harbor REST API]  endpoints in your .NET applications.
 
@@ -7,7 +7,7 @@ This library allows you to interact with [Harbor REST API]  endpoints in your .N
 Support Harbor v2.3.3
 ## Installation
 
-[![NuGet latest release](https://img.shields.io/nuget/v/Horbor.Client.svg)](https://www.nuget.org/packages/Horbor.Client)
+[![NuGet latest release](https://img.shields.io/nuget/v/Horbor.Client.svg)](https://www.nuget.org/packages/Harbor.Client)
 
 You can add this library to your project using [NuGet][nuget].
 
@@ -17,7 +17,7 @@ Run the following command in the “Package Manager Console”:
 > PM> Install-Package Horbor.Client
 
 **Visual Studio**
-Right click to your project in Visual Studio, choose “Manage NuGet Packages” and search for ‘Docker.DotNet’ and click ‘Install’.
+Right click to your project in Visual Studio, choose “Manage NuGet Packages” and search for ‘Harbor.Client’ and click ‘Install’.
 ([see NuGet Gallery][nuget-gallery].)
 
 **.NET Core Command Line Interface**
