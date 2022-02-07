@@ -10,10 +10,10 @@ namespace TestWebApp.Controllers
     [Route("api/[controller]")]
     public class TestController : ControllerBase
     {
-        private readonly HarborClientConfiguratio _HarborClientConfiguratio;
+        private readonly HarborClientConfiguration _HarborClientConfiguratio;
         public TestController()
         {
-            _HarborClientConfiguratio = new HarborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
+            _HarborClientConfiguratio = new HarborClientConfiguration(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
         }
 
         [HttpGet, Route("ListRepositoriesByProject")]

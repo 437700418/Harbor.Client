@@ -13,7 +13,7 @@ namespace Harbor.Client
 {
     public sealed class HarborClient : IHarborClient
     {
-        private readonly HarborClientConfiguratio _HarborConfig;
+        private readonly HarborClientConfiguration _HarborConfig;
 
         private readonly HttpClient _httpClient;
 
@@ -22,7 +22,7 @@ namespace Harbor.Client
         /// </summary>
         public IRepository Repository { get; }
 
-        internal HarborClient(HarborClientConfiguratio HarborConfig)
+        internal HarborClient(HarborClientConfiguration HarborConfig)
         {
             _HarborConfig = HarborConfig;
             _httpClient = new HttpClient();

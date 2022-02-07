@@ -35,9 +35,9 @@ using Harbor.Client;
 using Harbor.Client.Group.Model;
 using System.Threading.Tasks;
 
-        HarborClientConfiguratio _HarborClientConfiguratio = new HarborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
+        HarborClientConfiguration _HarborClientConfiguration = new HarborClientConfiguration(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
 
-         using (HarborClient _HarborClient = _HarborClientConfiguratio.CreatHarborClient())
+         using (HarborClient _HarborClient = _HarborClientConfiguration.CreatHarborClient())
             {
                 var result = await _HarborClient.Repository.ListRepositoriesByProject(new Harbor.Client.Group.Model.ListRepositoriesByProjectParam()
                 {
