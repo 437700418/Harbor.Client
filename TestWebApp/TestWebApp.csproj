@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Horbor.Client\Harbor.Client.csproj" />
+    <ProjectReference Include="..\Harbor.Client\Harbor.Client.csproj" />
   </ItemGroup>
 
 
