@@ -4,20 +4,23 @@ using System.Text;
 
 namespace Horbor.Client.Group.Model
 {
-    public class GetRepositoryParam
+    /// <summary>
+    /// DeleteRepositoryParam
+    /// </summary>
+    public class DeleteRepositoryParam
     {
         /// <summary>
         /// The name of the project
         /// </summary>
-        
-        [MarkNotQueryStringAttribute]
+
+        [MarkNotQueryString]
         public string project_name { get; set; }
 
         /// <summary>
         /// The name of the repository. If it contains slash, encode it with URL encoding. e.g. a/b -> a%252Fb
         /// </summary>
-        [MarkNotQueryStringAttribute]
+        [MarkNotQueryString]
         public string repository_name { get; set; }
-        
+
     }
 }

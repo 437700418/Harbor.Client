@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horbor.Client.ResponseModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,13 @@ namespace Horbor.Client
         /// <returns></returns>
         Task<string> GetAsync(string requestUri, object dataObj);
 
+        /// <summary>
+        /// 给Horbor发送Get请求
+        /// </summary>
+        /// <param name="requestUri"></param>
+        /// <param name="dataObj"></param>
+        /// <returns></returns>
+        Task<ApiResponse<T>> GetAsync<T>(string requestUri, object dataObj);
 
         /// <summary>
         /// 给Horbor发送Post请求
@@ -33,6 +41,14 @@ namespace Horbor.Client
         /// <param name="dataObj"></param>
         /// <returns></returns>
         Task<string> PostAsync(string requestUri, object dataObj);
+
+        /// <summary>
+        /// 给Horbor发送Post请求
+        /// </summary>
+        /// <param name="requestUri"></param>
+        /// <param name="dataObj"></param>
+        /// <returns></returns>
+        Task<ApiResponse<T>> PostAsync<T>(string requestUri, object dataObj);
 
 
         /// <summary>
@@ -44,12 +60,28 @@ namespace Horbor.Client
         Task<string> PutAsync(string requestUri, object dataObj);
 
         /// <summary>
+        /// 给Horbor发送Put请求
+        /// </summary>
+        /// <param name="requestUri"></param>
+        /// <param name="dataObj"></param>
+        /// <returns></returns>
+        Task<ApiResponse<T>> PutAsync<T>(string requestUri, object dataObj);
+
+        /// <summary>
         /// 给Horbor发送Delete请求
         /// </summary>
         /// <param name="requestUri"></param>
         /// <param name="dataObj"></param>
         /// <returns></returns>
         Task<string> DeleteAsync(string requestUri, object dataObj);
+
+        /// <summary>
+        /// 给Horbor发送Delete请求
+        /// </summary>
+        /// <param name="requestUri"></param>
+        /// <param name="dataObj"></param>
+        /// <returns></returns>
+        Task<ApiResponse<T>> DeleteAsync<T>(string requestUri, object dataObj);
 
     }
 }

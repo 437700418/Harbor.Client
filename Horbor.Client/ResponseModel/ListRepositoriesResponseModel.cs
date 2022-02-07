@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Horbor.Client.ResponseModel
 {
-    public class ListRepositoriesResponseModel: BaseResponseModel
+    public class ListRepositoriesResponseModel: BaseResponse
     {
 
    

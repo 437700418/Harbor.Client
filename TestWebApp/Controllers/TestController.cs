@@ -1,7 +1,9 @@
 ﻿using Horbor.Client;
 using Horbor.Client.Group.Model;
+using Horbor.Client.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,32 +16,51 @@ namespace TestWebApp.Controllers
     public class TestController : ControllerBase
     {
         private readonly HorborClientConfiguratio _horborClientConfiguratio;
-        private readonly HorborClient _horborClient;
         public TestController()
         {
             _horborClientConfiguratio = new HorborClientConfiguratio(new HarborConfig("admin", "Harbor12345", "192.168.189.99:8088"));
-            _horborClient = _horborClientConfiguratio.CreatHorborClient();
         }
 
-        [HttpGet,Route("ListRepositoriesByProject")]
-        public async Task<string> ListRepositoriesByProject()
+        [HttpGet, Route("ListRepositoriesByProject")]
+        public async Task<string> ListRepositoriesByProject(string projectname)
         {
-            var result = await _horborClient.Repository.ListRepositoriesByProject(new Horbor.Client.Group.Model.ListRepositoriesByProjectParam()
+            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
             {
-                project_name = "myprpject"
-            }); ;
-            return result;
+                var result = await _horborClient.Repository.ListRepositoriesByProject(new Horbor.Client.Group.Model.ListRepositoriesByProjectParam()
+                {
+                    project_name = projectname
+                });
+                return JsonConvert.SerializeObject(result);
+            }
         }
 
         [HttpGet, Route("GetRepository")]
-        public async Task<string> GetRepository()
+        public async Task<string> GetRepository(string projectname, string repositoryname)
         {
-            var result = await _horborClient.Repository.GetRepository(new Horbor.Client.Group.Model.GetRepositoryParam()
+            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
             {
-                project_name= "myprpject",
-                repository_name = "ysdszt"
-            }); 
-            return result;
+                var result = await _horborClient.Repository.GetRepository(new Horbor.Client.Group.Model.GetRepositoryParam()
+                {
+                    project_name = projectname,
+                    repository_name = repositoryname
+                });
+                return JsonConvert.SerializeObject(result);
+            }
+        }
+
+
+        [HttpGet, Route("DeleteRepository")]
+        public async Task<string> DeleteRepository()
+        {
+            using (HorborClient _horborClient = _horborClientConfiguratio.CreatHorborClient())
+            {
+                var result = await _horborClient.Repository.DeleteRepository(new DeleteRepositoryParam()
+                {
+                    project_name = "myprpject",
+                    repository_name = "ysdszt",
+                });
+                return JsonConvert.SerializeObject(result);
+            }
         }
     }
 }

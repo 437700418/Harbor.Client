@@ -1,4 +1,5 @@
 ﻿using Horbor.Client.Group.Model;
+using Horbor.Client.ResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Horbor.Client.Group
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        Task<string> ListRepositoriesByProject(ListRepositoriesByProjectParam param);
+        Task<ApiResponse<List<Repositories>>> ListRepositoriesByProject(ListRepositoriesByProjectParam param);
 
 
         /// <summary>
@@ -21,6 +22,14 @@ namespace Horbor.Client.Group
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        Task<string> GetRepository(GetRepositoryParam param);
+        Task<ApiResponse<Repositories>> GetRepository(GetRepositoryParam param);
+
+
+        /// <summary>
+        /// Delete the repository specified by name
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        Task<ApiResponse<string>> DeleteRepository(DeleteRepositoryParam param);
     }
 }

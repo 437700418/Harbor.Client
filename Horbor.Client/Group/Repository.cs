@@ -1,4 +1,5 @@
 ﻿using Horbor.Client.Group.Model;
+using Horbor.Client.ResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -20,10 +21,10 @@ namespace Horbor.Client.Group
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task<string> ListRepositoriesByProject(ListRepositoriesByProjectParam param)
+        public async Task<ApiResponse<List<Repositories>>> ListRepositoriesByProject(ListRepositoriesByProjectParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories";
-            return await _horborClient.GetAsync(apiUrl, param);
+            return await _horborClient.GetAsync<List<Repositories>>(apiUrl, param);
         }
 
         /// <summary>
@@ -31,10 +32,20 @@ namespace Horbor.Client.Group
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public async Task<string> GetRepository(GetRepositoryParam param)
+        public async Task<ApiResponse<Repositories>> GetRepository(GetRepositoryParam param)
         {
             string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories/{param.repository_name}";
-            return await _horborClient.GetAsync(apiUrl, param);
+            return await _horborClient.GetAsync<Repositories>(apiUrl, param);
+        }
+        /// <summary>
+        /// Delete the repository specified by name
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public async Task<ApiResponse<string>> DeleteRepository(DeleteRepositoryParam param)
+        {
+            string apiUrl = $"/api/v2.0/projects/{param.project_name}/repositories/{param.repository_name}";
+            return await _horborClient.DeleteAsync<string>(apiUrl, null);
         }
     }
 }

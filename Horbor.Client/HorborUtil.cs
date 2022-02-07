@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horbor.Client.Group;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Horbor.Client
             {
                 foreach (var item in (source as Dictionary<string, string>))
                 {
-                    buff.Append(WebUtility.UrlEncode(item.Key+"") + "=" + WebUtility.UrlEncode(item.Value + "") + "&");
+                    buff.Append(WebUtility.UrlEncode(item.Key + "") + "=" + WebUtility.UrlEncode(item.Value + "") + "&");
                 }
             }
             else
@@ -37,7 +38,7 @@ namespace Horbor.Client
                     if (value != null)
                     {
 
-                        buff.Append(WebUtility.UrlEncode(property.Name+"") + "=" + WebUtility.UrlEncode(value + "") + "&");
+                        buff.Append(WebUtility.UrlEncode(property.Name + "") + "=" + WebUtility.UrlEncode(value + "") + "&");
                     }
                 }
             }
@@ -53,6 +54,11 @@ namespace Horbor.Client
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
 
+            if (obj == null)
+            {
+                return map;
+            }
+
             Type t = obj.GetType(); // 获取对象对应的类， 对应的类型
 
             PropertyInfo[] pi = t.GetProperties(BindingFlags.Public | BindingFlags.Instance); // 获取当前type公共属性
@@ -60,8 +66,7 @@ namespace Horbor.Client
             foreach (PropertyInfo p in pi)
             {
                 MethodInfo m = p.GetGetMethod();
-
-                if (m != null && m.IsPublic)
+                if (p.GetCustomAttribute(typeof(MarkNotQueryStringAttribute)) == null && m != null && m.IsPublic)
                 {
                     // 进行判NULL处理
                     if (m.Invoke(obj, new object[] { }) != null)
