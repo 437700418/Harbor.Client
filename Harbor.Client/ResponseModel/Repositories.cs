@@ -6,13 +6,13 @@ namespace Harbor.Client.ResponseModel
 {
     public class Repositories
     {
-        public int update_time { get; set; }
+        public DateTime update_time { get; set; }
         public int pull_count { get; set; }
-        public int creation_time { get; set; }
+        public DateTime creation_time { get; set; }
         public int artifact_count { get; set; }
         public int project_id { get; set; }
         public int id { get; set; }
-        public int name { get; set; }
+        public string name { get; set; }
     }
   
 }
